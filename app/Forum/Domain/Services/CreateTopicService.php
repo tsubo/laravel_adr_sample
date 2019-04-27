@@ -2,10 +2,11 @@
 
 namespace App\Forum\Domain\Services;
 
-use App\Forum\Domain\Repositories\TopicRepository;
+use App\App\Domain\ServiceInterface;
 use App\Forum\Domain\Repositories\PostRepository;
+use App\Forum\Domain\Repositories\TopicRepository;
 
-class CreateTopicService
+class CreateTopicService implements ServiceInterface
 {
     protected $topics;
     protected $posts;
@@ -16,7 +17,7 @@ class CreateTopicService
         $this->posts = $posts;
     }
 
-    public function handle($data)
+    public function handle($data = [])
     {
         $topic = $this->topics->create(array_only($data, 'title'));
         $this->posts->create($topic->id, array_only($data, 'body'));

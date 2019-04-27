@@ -2,12 +2,12 @@
 
 namespace App\Forum\Responders;
 
-use App\Forum\Domain\Models\Topic;
+use App\App\Responders\ResponderInterface;
 
-class CreateTopicResponder
+class CreateTopicResponder implements ResponderInterface
 {
-    public function respond(Topic $topic)
+    public function respond($data)
     {
-        return response()->json($topic, 200);
+        return response()->json($data, 200);
     }
 }
