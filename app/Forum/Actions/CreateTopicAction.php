@@ -4,22 +4,22 @@ namespace App\Forum\Actions;
 
 use Illuminate\Http\Request;
 use App\Forum\Responders\CreateTopicResponder;
-use App\Forum\Domain\Repositories\TopicRepository;
+use App\Forum\Domain\Services\CreateTopicService;
 
 class CreateTopicAction
 {
-    protected $topics;
+    protected $service;
     protected $responder;
 
-    public function __construct(TopicRepository $topics, CreateTopicResponder $responder)
+    public function __construct(CreateTopicService $service, CreateTopicResponder $responder)
     {
-        $this->topics = $topics;
+        $this->service = $service;
         $this->responder = $responder;
     }
 
     public function __invoke(Request $request)
     {
-        $topic = $this->topics->create($request->only('title'));
+        $topic = $this->service->handle($request->only('title', 'body'));
 
         return $this->responder->respond($topic);
     }

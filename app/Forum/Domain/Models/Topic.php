@@ -2,6 +2,7 @@
 
 namespace App\Forum\Domain\Models;
 
+use App\Forum\Domain\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
@@ -20,5 +21,10 @@ class Topic extends Model
                 'slug' => str_slug($topic->id . ' ' . $topic->title)
             ]);
         });
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
