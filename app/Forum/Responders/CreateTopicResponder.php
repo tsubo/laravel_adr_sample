@@ -2,8 +2,8 @@
 
 namespace App\Forum\Responders;
 
-use App\App\Responders\ResponderInterface;
 use App\App\Responders\Responder;
+use App\App\Responders\ResponderInterface;
 
 class CreateTopicResponder extends Responder implements ResponderInterface
 {

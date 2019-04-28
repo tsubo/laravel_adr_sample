@@ -19,10 +19,32 @@ class CreateTopicService implements ServiceInterface
 
     public function handle($data = [])
     {
-        $topic = $this->topics->create(array_only($data, 'title'));
-        $this->posts->create($topic->id, array_only($data, 'body'));
+        $validator = $this->validate($data);
+        if ($validator->fails()) {
+            return [
+                'errors' => $validator->getMessageBag()
+            ];
+        }
+
+        $topic = $this->topics->create(
+            array_only($data, 'title')
+        );
+
+        $this->posts->create(
+            $topic->id,
+            array_only($data, 'body')
+        );
+
         $topic->load('posts');
 
         return $topic;
+    }
+
+    protected function validate($data)
+    {
+        return validator($data, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
     }
 }
