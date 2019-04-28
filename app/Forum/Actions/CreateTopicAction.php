@@ -21,6 +21,6 @@ class CreateTopicAction
     {
         $topic = $this->service->handle($request->only('title', 'body'));
 
-        return $this->responder->respond($topic);
+        return $this->responder->withResponse($topic)->respond();
     }
 }
