@@ -9,6 +9,6 @@ class CreateTopicResponder extends Responder implements ResponderInterface
 {
     public function respond()
     {
-        return response()->json($this->response, 200);
+        return response()->json($this->response->getData(), $this->response->getStatus());
     }
 }

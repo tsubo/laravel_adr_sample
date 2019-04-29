@@ -5,6 +5,8 @@ namespace App\Forum\Domain\Services;
 use App\App\Domain\ServiceInterface;
 use App\Forum\Domain\Repositories\PostRepository;
 use App\Forum\Domain\Repositories\TopicRepository;
+use App\App\Domain\Payloads\ValidationPayload;
+use App\App\Domain\Payloads\GenericPayload;
 
 class CreateTopicService implements ServiceInterface
 {
@@ -21,9 +23,7 @@ class CreateTopicService implements ServiceInterface
     {
         $validator = $this->validate($data);
         if ($validator->fails()) {
-            return [
-                'errors' => $validator->getMessageBag()
-            ];
+            return new ValidationPayload($validator->getMessageBag());
         }
 
         $topic = $this->topics->create(
@@ -37,7 +37,7 @@ class CreateTopicService implements ServiceInterface
 
         $topic->load('posts');
 
-        return $topic;
+        return new GenericPayload($topic);
     }
 
     protected function validate($data)
