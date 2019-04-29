@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Forum\Domain\Models;
+namespace App\Domain\Models;
 
-use App\Forum\Domain\Models\Post;
+use App\Domain\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model

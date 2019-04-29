@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Forum\Actions;
+namespace App\Http\Actions;
 
 use Illuminate\Http\Request;
-use App\Forum\Responders\ListTopicResponder;
-use App\Forum\Domain\Services\ListTopicService;
+use App\Http\Responders\ListTopicResponder;
+use App\Domain\Services\ListTopicService;
 
 class ListTopicAction
 {

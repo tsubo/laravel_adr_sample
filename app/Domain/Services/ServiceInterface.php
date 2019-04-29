@@ -1,6 +1,6 @@
 <?php
 
-namespace App\App\Domain;
+namespace App\Domain\Services;
 
 interface ServiceInterface
 {

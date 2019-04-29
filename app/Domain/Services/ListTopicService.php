@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Forum\Domain\Services;
+namespace App\Domain\Services;
 
-use App\App\Domain\ServiceInterface;
-use App\Forum\Domain\Repositories\TopicRepository;
-use App\App\Domain\Payloads\ValidationPayload;
-use App\App\Domain\Payloads\GenericPayload;
+use App\Domain\Repositories\TopicRepository;
+use App\Domain\Payloads\GenericPayload;
 
 class ListTopicService implements ServiceInterface
 {

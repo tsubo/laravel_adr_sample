@@ -1,9 +1,6 @@
 <?php
 
-namespace App\Forum\Responders;
-
-use App\App\Responders\Responder;
-use App\App\Responders\ResponderInterface;
+namespace App\Http\Responders;
 
 class ListTopicResponder extends Responder implements ResponderInterface
 {

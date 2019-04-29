@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Forum\Actions;
+namespace App\Http\Actions;
 
 use Illuminate\Http\Request;
-use App\Forum\Responders\CreateTopicResponder;
-use App\Forum\Domain\Services\CreateTopicService;
+use App\Http\Responders\CreateTopicResponder;
+use App\Domain\Services\CreateTopicService;
 
 class CreateTopicAction
 {

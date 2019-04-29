@@ -1,6 +1,6 @@
 <?php
 
-namespace App\App\Domain\Payloads;
+namespace App\Domain\Payloads;
 
 class ValidationPayload extends Payload
 {

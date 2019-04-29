@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Forum\Domain\Repositories;
+namespace App\Domain\Repositories;
 
-use App\Forum\Domain\Models\Post;
+use App\Domain\Models\Post;
 
 class PostRepository
 {

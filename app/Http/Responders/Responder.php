@@ -1,6 +1,6 @@
 <?php
 
-namespace App\App\Responders;
+namespace App\Http\Responders;
 
 abstract class Responder
 {
